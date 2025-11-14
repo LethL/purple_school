@@ -4,24 +4,24 @@ class Car {
     #mileage;
   
     constructor(brand, model, mileage) {
-        if (!typeof brand === "string" || brand.trim().length < 1) {
+        if (typeof brand !== "string" || brand.trim().length < 1) {
             throw new Error('Параметр brand обязателен и должен быть строкой')
         }
         this.#brand = brand
 
-        if (!typeof model === "string" || model.trim().length < 1) {
+        if (typeof model !== "string" || model.trim().length < 1) {
             throw new Error('Параметр model обязателен и должен быть строкой')
         }
         this.#model = model
 
-        if (!typeof mileage === "number" || mileage < 0) {
+        if (!typeof mileage !== "number" || mileage < 0) {
             throw new Error('Параметр number должен быть числом и не может быть меньше 0')
         }
         this.#mileage = mileage
     }
 
     info() {
-        return `Марка - ${this.#brand}. Модель - ${this.#model}. Пробег - ${this.#mileage}.`
+        console.log(`Марка - ${this.#brand}. Модель - ${this.#model}. Пробег - ${this.#mileage}.`);
     }
 
     set changeMileage(newMileage) {
